@@ -72,9 +72,25 @@ public class DoublyLinkedList {
     newNode.next = head
     head = newNode
   }
+
+  public insertNodeAtEndInDLL(value) {
+    // need to assign head and tail since null initially
+    ListNode newNode = new ListNode(value)
+    if(isEmpty()) {
+      head = newNode
+    } else {
+      // create a pointer to new node forward
+      tail.next = newNode
+      // create a pointer to the previous node -> now pointer both ways
+      newNode.previous = tail
+    }
+    // set newNode to tail since tail will be at the end of the list
+    tail = newNode
+  }
 }
 
 public static void main(String[] args) {
-  DoublyLinkedList sll = new DoublyLinkedList();
+  DoublyLinkedList dll = new DoublyLinkedList();
+  dll.insertNodeInDLL(1)
 }
 
