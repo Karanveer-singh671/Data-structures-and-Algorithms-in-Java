@@ -6,6 +6,7 @@
 
 // SLL  |DATA|NEXT|
 // DLL  |PREVIOUS|DATA|NEXT|
+import java.util.NoSuchElementException;
 
 public class DoublyLinkedList {
   // instance variable
@@ -73,10 +74,11 @@ public class DoublyLinkedList {
     head = newNode
   }
 
-  public insertNodeAtEndInDLL(value) {
+  public void insertNodeAtEndInDLL(value) {
     // need to assign head and tail since null initially
     ListNode newNode = new ListNode(value)
     if(isEmpty()) {
+      // if it is empty we want to set up the head to newNode and at the end of alg set newNode value to tail
       head = newNode
     } else {
       // create a pointer to new node forward
@@ -86,6 +88,22 @@ public class DoublyLinkedList {
     }
     // set newNode to tail since tail will be at the end of the list
     tail = newNode
+  }
+  public ListNode deleteFirstNodeInDLL() {
+    if(isEmpty()) {
+      throw new NoSuchElementException();
+    }
+
+    ListNode temp = head
+    if( head == tail ){
+      tail = null
+    } else {
+      head.next.previous = null 
+    }
+    head = head.next
+    temp.next = null
+    length--
+    return temp
   }
 }
 
