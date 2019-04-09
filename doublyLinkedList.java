@@ -105,6 +105,25 @@ public class DoublyLinkedList {
     length--
     return temp
   }
+
+  public ListNode deleteLastNodeInDLL() {
+    if(isEmpty()) {
+      throw new NoSuchElementException
+    }  
+    ListNode temp = tail
+    if(head == tail) {
+      head = null 
+    } else {
+      // remove the next pointer in the second last node
+      tail.previous.next = null
+    }
+    // if only one node tail will point to null too and then can remove
+    tail = tail.previous
+    temp.previous = null
+    length--;
+    return temp 
+  }
+
 }
 
 public static void main(String[] args) {
