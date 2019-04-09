@@ -61,4 +61,20 @@ public class DoublyLinkedList {
     }
     System.out.print("null")
   }
+
+  public void insertNodeInDLL(value) {
+    ListNode newNode = new ListNode(value)
+    if(isEmpty()) {
+      tail = newNode
+    } else {
+      head.previous = newNode
+    }
+    newNode.next = head
+    head = newNode
+  }
 }
+
+public static void main(String[] args) {
+  DoublyLinkedList sll = new DoublyLinkedList();
+}
+
