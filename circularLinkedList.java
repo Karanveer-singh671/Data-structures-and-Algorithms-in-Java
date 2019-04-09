@@ -4,7 +4,7 @@
 import java.lang.System;
 public class CircularSinglyLinkedList {
 
-  pirvate ListNode last;
+  private ListNode last;
   private int length;
 
   private class ListNode {
@@ -60,7 +60,7 @@ public class CircularSinglyLinkedList {
     System.out.print(first.data)
   }
 
-  public void insertNodeBeginningCSLL(value){
+  public void insertNodeBeginningCSLL(int value){
     ListNode temp = new ListNode(value)
     if(last == null) {
       last = temp 
@@ -71,8 +71,24 @@ public class CircularSinglyLinkedList {
     length++
   }
 
+  public void insertNodeAtEndOfCSLL(int value){
+    ListNode temp = new ListNode(value)
+    if (last == null) {
+      last = temp
+      // points to itself Circular
+      last.next = last
+    } else {
+      temp.next = last.next
+      last.next = temp
+      last = temp
+    }
+    length++
+  }
+
   public static void main(String[], args) {
     CircularSinglyLinkedList csll = new CircularSinglyLinkedList()
     csll.createCircularLinkedList();
+    csll.insertNodeBeginningCSLL(10)
+    csll.display()
   }
 }

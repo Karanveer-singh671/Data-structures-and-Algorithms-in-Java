@@ -37,7 +37,7 @@ public class SinglyLinkedList {
   return counter
 }
 
-  public void insertBeginning(value) {
+  public void insertBeginning(int value) {
     // new node created with value and next pointing to null 
     ListNode newNode = new ListNode(value);
     // insert to beginning point to head so next points to head now 
@@ -47,7 +47,7 @@ public class SinglyLinkedList {
 
   }
 
-  public void insertEnd(value) {
+  public void insertEnd(int value) {
     ListNode newNode = new ListNode(value)
     if(head == null) {
       // no head so set newNode as the head 

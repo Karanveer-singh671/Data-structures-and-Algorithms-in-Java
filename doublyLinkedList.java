@@ -63,7 +63,7 @@ public class DoublyLinkedList {
     System.out.print("null")
   }
 
-  public void insertNodeInDLL(value) {
+  public void insertNodeInDLL(int value) {
     ListNode newNode = new ListNode(value)
     if(isEmpty()) {
       tail = newNode
@@ -74,7 +74,7 @@ public class DoublyLinkedList {
     head = newNode
   }
 
-  public void insertNodeAtEndInDLL(value) {
+  public void insertNodeAtEndInDLL(int value) {
     // need to assign head and tail since null initially
     ListNode newNode = new ListNode(value)
     if(isEmpty()) {
