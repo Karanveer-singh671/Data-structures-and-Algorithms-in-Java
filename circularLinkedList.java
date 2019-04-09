@@ -1,7 +1,7 @@
 // similar to singly linked list but difference is the last node points to the first node and not to null
 // instead of head we keep track of last node in circular singly list 
 // inserting at end it takes constant time since last pointer and last.next points to beginning of list 
-
+import java.lang.System;
 public class CircularSinglyLinkedList {
 
   pirvate ListNode last;
@@ -28,7 +28,7 @@ public class CircularSinglyLinkedList {
   public boolean isEmpty() {
     return length == 0
   }
-
+  // no return statement so use void
   public void createCircularLinkedList(){
     ListNode first = new ListNode(1)
     ListNode second = new ListNode(2)
@@ -46,7 +46,22 @@ public class CircularSinglyLinkedList {
     last = first
   }
 
+  public void display() {
+    // csll empty
+    if(last == null) {
+      return
+    }
+    // first position, we know last.next points to first node in csll
+    ListNode first = last.next
+    while(first != last ) {
+      System.out.print(first.data + " ")
+      first = first.next
+    }
+    System.out.print(first.data)
+  }
+
   public static void main(String[], args) {
     CircularSinglyLinkedList csll = new CircularSinglyLinkedList()
+    csll.createCircularLinkedList();
   }
 }
