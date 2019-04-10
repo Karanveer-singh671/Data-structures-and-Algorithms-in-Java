@@ -58,7 +58,7 @@ public class CircularSinglyLinkedList {
       System.out.print(first.data + " ")
       first = first.next
     }
-    System.out.print(first.data)
+    System.out.println(first.data)
   }
 
   public void insertNodeBeginningCSLL(int value){
@@ -88,7 +88,7 @@ public class CircularSinglyLinkedList {
 
   public ListNode removeNodeCSLL(){
     if(isEmpty()) {
-      throw new NoSuchElementException
+      throw new NoSuchElementException("empty list")
     }
     ListNode temp = last.next
     if(last.next != last) {

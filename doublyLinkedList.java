@@ -48,7 +48,7 @@ public class DoublyLinkedList {
       System.out.print(temp.data + " --> ")
       temp = temp.next
     }
-    System.out.print("null")
+    System.out.println("null")
   }
 
   public printDataBackwardInDLL() {
@@ -60,7 +60,7 @@ public class DoublyLinkedList {
       System.out.print(temp.data + " --> ")
       temp = temp.previous
     }
-    System.out.print("null")
+    System.out.println("null")
   }
 
   public void insertNodeInDLL(int value) {
@@ -91,7 +91,7 @@ public class DoublyLinkedList {
   }
   public ListNode deleteFirstNodeInDLL() {
     if(isEmpty()) {
-      throw new NoSuchElementException();
+      throw new NoSuchElementException("empty list");
     }
 
     ListNode temp = head
@@ -108,7 +108,7 @@ public class DoublyLinkedList {
 
   public ListNode deleteLastNodeInDLL() {
     if(isEmpty()) {
-      throw new NoSuchElementException
+      throw new NoSuchElementException("empty list")
     }  
     ListNode temp = tail
     if(head == tail) {

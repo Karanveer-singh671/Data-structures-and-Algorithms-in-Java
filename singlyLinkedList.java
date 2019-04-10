@@ -1,4 +1,5 @@
 public class SinglyLinkedList {
+  import java.lang.IllegalArgumentException
   private ListNode head; // instance variable type ListNode, need to create
   // class can't be changed if static class 
   private static class ListNode {
@@ -120,7 +121,7 @@ public class SinglyLinkedList {
       return null
     }
     if (n <= 0) {
-      throw new import java.lang.IllegalArgumentException("invalid value of" + n)
+      throw new IllegalArgumentException("invalid value of" + n)
     }
     ListNode mainPtr = head
     ListNode refPtr = head
@@ -129,7 +130,7 @@ public class SinglyLinkedList {
 
     while(count < n) {
       if (refPtr == null) {
-        throw new import java.lang.IllegalArgumentException(n + "is greater than number of nodes in SinglyLinkedList")
+        throw new IllegalArgumentException(n + "is greater than number of nodes in SinglyLinkedList")
       }
       refPtr = refPtr.next
       count++
@@ -240,7 +241,7 @@ public class SinglyLinkedList {
     SinglyLinkedList sll = new SinglyLinkedList();
 
     sll.createALoopInLinkedList()
-    System.out.print(sll.detectLoop())
+    System.out.println(sll.detectLoop())
   //   sll.head = new ListNode(10)
   //   ListNode second = new ListNode(1)
   //   ListNode third = new ListNode(2)
