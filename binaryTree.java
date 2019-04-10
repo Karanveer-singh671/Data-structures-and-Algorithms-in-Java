@@ -19,6 +19,11 @@ null<--|left|data|right --> null */
 2. visit root node
 3. Traverse right subtree in In order fashion */
 
+/* post order B.T traversal
+1. Traverse left subtree in In order fashion
+2. Traverse right subtree in In order fashion
+3. visit root node */
+
 public class BinaryTree {
   private TreeNode root;
 
@@ -69,6 +74,15 @@ public class BinaryTree {
     inOrder(root.left)
     System.out.print(root.data + " ")
     inOrder(root.right)
+  }
+
+  public void inOrder(TreeNode root) {
+    if( root == null) {
+      return
+    }
+    inOrder(root.left)
+    inOrder(root.right)
+    System.out.print(root.data + " ")
   }
 
   public void inOrderIterative(TreeNode root) {
