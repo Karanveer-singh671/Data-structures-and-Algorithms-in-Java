@@ -24,6 +24,9 @@ null<--|left|data|right --> null */
 2. Traverse right subtree in In order fashion
 3. visit root node */
 
+/* level order traversal
+Visit nodes level by level */
+import java.util.LinkedList;
 public class BinaryTree {
   private TreeNode root;
 
@@ -122,6 +125,25 @@ public class BinaryTree {
       // push left child node on stack after since when call pop on while loop will remove Last one in and we traverse left subtree first
       if(temp.left != null) {
         stack.push(temp.left)
+      }
+    }
+  }
+  // use a queue where the root node goes to queue first then next level left then the levels right put in queue
+  public void levelOrder(TreeNode root) {
+    if (root ==null ) {
+      return 
+    }
+    Queue<TreeNode> queue = new LinkedList<>()
+    queue.offer(root);
+    while(!queue.isEmpty()) {
+      // set temp to be the first node in the queue 
+      TreeNode temp = queue.poll();
+      System.out.print(temp.data + " ")
+      if(temp.left != null) {
+        queue.offer(temp.left)
+      }
+      if(temp.right != null) {
+        queue.offer(temp.right)
       }
     }
   }
