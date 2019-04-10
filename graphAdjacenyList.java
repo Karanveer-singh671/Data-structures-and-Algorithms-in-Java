@@ -32,14 +32,37 @@ public class ListGraph {
 			sb.append("\n");
 		}
 		return sb.toString();
-	}
+  }
+  // s is starting point to search at
+  public void bfs(int s) {
+    // boolean array to say if the nodes are visited will be the size of the number of vertices
+    boolean[] visited = new boolean[V];
+    // using adj list like before to check 
+    Queue<Integer> q = new LinkedList<>();
+    visited[s] = true 
+    q.offer(s)
+    while(!q.isEmpty()) {
+      int u = q.poll()
+      System.out.print(u + " ")
+      // after polling node just traverse adjacent nodes 
+        // vertice in pointed index at u for each node pointed to by adj[u] 
+      for (int v : adj[u]) {
+      // if the adj vertice is not visited set it to visited
+      if (!visited[v]) {
+        visited[v] = true
+        // put in queue
+        q.offer(v)
+      }
+    }
+}
  
 	public static void main(String[] args) {
-		Graph g = new Graph(4);
+		Graph g = new Graph(5);
 		g.addEdge(0, 1);
 		g.addEdge(1, 2);
 		g.addEdge(2, 3);
 		g.addEdge(3, 0);
-		System.out.println(g);
+		g.addEdge(2, 4);
+		g.bfs(0);
 	}
 }
