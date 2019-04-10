@@ -46,6 +46,7 @@ public class BinaryTree {
   }
 
   public void preOrder(TreeNode root) {
+    // recursive methods use stacks internally 
     // base/terminate case to terminate method and get to next method in call stack
     if(root == null) {
       return
@@ -58,9 +59,33 @@ public class BinaryTree {
     preOrder(root.right);
   }
 
+  public void preOrderIterative(TreeNode root) {
+    // no nodes in binary tree
+    if (root == null)  {
+      return 
+    }
+    // create stack 
+    Stack<TreeNode> stack = new Stack<>();
+    stack.push(root)
+    while(!stack.isEmpty()) {
+      // pop root out on first iteration
+      TreeNode temp = stack.pop()
+      System.out.print(temp.data + " ")
+      // need to check if right child of root is null, if not push on stack
+      if(temp.right != null) {
+        stack.push(temp.right)
+      }
+      // push left child node on stack after since when call pop on while loop will remove Last one in and we traverse left subtree first
+      if(temp.left != null) {
+        stack.push(temp.left)
+      }
+    }
+  }
+
   public static void main(String[], args) {
     BinaryTree bt = new BinaryTree();
 		bt.createBinaryTree();
-		bt.preOrder(bt.root);
+    // bt.preOrder(bt.root);
+    bt.preOrderIterative(bt.root);
   }
 }
