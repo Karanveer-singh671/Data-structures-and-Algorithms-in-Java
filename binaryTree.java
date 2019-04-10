@@ -130,7 +130,7 @@ public class BinaryTree {
   }
   // use a queue where the root node goes to queue first then next level left then the levels right put in queue
   public void levelOrder(TreeNode root) {
-    if (root ==null ) {
+    if (root == null ) {
       return 
     }
     Queue<TreeNode> queue = new LinkedList<>()
@@ -154,5 +154,6 @@ public class BinaryTree {
     // bt.preOrder(bt.root);
     bt.preOrderIterative(bt.root);
     bt.inOrderIterative();
+    bt.levelOrder();
   }
 }
