@@ -13,6 +13,13 @@ public class MinArray {
     }
     return minimum
   }
+
+  public static void printArray(int[] arr) { 
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}  
+		System.out.println(); 
+	} 
   // do not return and just keep inplace
   public static void reverseArray(int[] numbers, int start, int end) {
     // int start = 0
@@ -25,6 +32,8 @@ public class MinArray {
       end--
     }
   }
+
+  
 
   public static void main(String[], args) {
     int[] arr = {5,9,12,4,5}
