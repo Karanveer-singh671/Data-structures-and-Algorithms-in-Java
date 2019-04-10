@@ -76,12 +76,12 @@ public class BinaryTree {
     inOrder(root.right)
   }
 
-  public void inOrder(TreeNode root) {
+  public void postOrder(TreeNode root) {
     if( root == null) {
       return
     }
-    inOrder(root.left)
-    inOrder(root.right)
+    postOrder(root.left)
+    postOrder(root.right)
     System.out.print(root.data + " ")
   }
 
