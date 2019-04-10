@@ -67,12 +67,20 @@ public class BinarySearchTree {
   }
  
 	public static void main(String[] args) {
-		BinarySearchTree bst = new BinarySearchTree();
+    BinarySearchTree bst = new BinarySearchTree();
 		bst.insert(5);
 		bst.insert(3);
 		bst.insert(7);
 		bst.insert(1);
 		
 		bst.inOrder();
+		
+		System.out.println();
+		
+		if(null != bst.search(10)) {
+			System.out.println("Key found !!!");
+		} else {
+			System.out.println("Key not found !!!");
+		}
 	}
 }
