@@ -71,6 +71,24 @@ public class BinaryTree {
     inOrder(root.right)
   }
 
+  public void inOrderIterative(TreeNode root) {
+    if( root == null) {
+      return
+    }
+    Stack<TreeNode> stack = new Stack<>();
+    TreeNode temp = root
+    while(!stack.isEmpty() || temp != null) {
+      if(temp != null) {
+        stack.push(temp)
+        temp = temp.left
+      } else {
+        temp = stack.pop()
+        System.out.print(temp.data + " ")
+        temp = temp.right
+      }
+    }
+
+
   public void preOrderIterative(TreeNode root) {
     // no nodes in binary tree
     if (root == null)  {
@@ -99,5 +117,6 @@ public class BinaryTree {
 		bt.createBinaryTree();
     // bt.preOrder(bt.root);
     bt.preOrderIterative(bt.root);
+    bt.inOrderIterative();
   }
 }
