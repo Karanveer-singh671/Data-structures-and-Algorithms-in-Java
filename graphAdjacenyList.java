@@ -33,6 +33,7 @@ public class ListGraph {
 		}
 		return sb.toString();
   }
+  // use Queue
   // s is starting point to search at
   public void bfs(int s) {
     // boolean array to say if the nodes are visited will be the size of the number of vertices
@@ -45,7 +46,7 @@ public class ListGraph {
       int u = q.poll()
       System.out.print(u + " ")
       // after polling node just traverse adjacent nodes 
-        // vertice in pointed index at u for each node pointed to by adj[u] 
+        // starting vertice in pointed index at u for each node pointed to by adj[u] 
       for (int v : adj[u]) {
       // if the adj vertice is not visited set it to visited
       if (!visited[v]) {
@@ -55,6 +56,26 @@ public class ListGraph {
       }
     }
 }
+  // use stack for dfs
+  public void dfs(int s) {
+    boolean[] visited = new boolean[V]
+    Stack<Integer> stack = new Stack<>();
+    stack.push(s);
+    while(!stack.isEmpty()) {
+      int u = stack.pop()
+      if(!visited[u]) {
+        visited[u] = true
+        System.out.print( u + " ")
+      }
+        for(int v : adj[u]) {
+          if(!visited[v]) {
+            stack.push(v)
+          }
+        }
+
+    }
+
+  }
  
 	public static void main(String[] args) {
 		Graph g = new Graph(5);
@@ -63,6 +84,7 @@ public class ListGraph {
 		g.addEdge(2, 3);
 		g.addEdge(3, 0);
 		g.addEdge(2, 4);
-		g.bfs(0);
+    // g.bfs(0);
+    g.dfs(0);
 	}
 }
