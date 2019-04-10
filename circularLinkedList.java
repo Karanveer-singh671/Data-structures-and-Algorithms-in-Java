@@ -2,6 +2,7 @@
 // instead of head we keep track of last node in circular singly list 
 // inserting at end it takes constant time since last pointer and last.next points to beginning of list 
 import java.lang.System;
+import java.util.NoSuchElementException;
 public class CircularSinglyLinkedList {
 
   private ListNode last;
@@ -73,7 +74,7 @@ public class CircularSinglyLinkedList {
 
   public void insertNodeAtEndOfCSLL(int value){
     ListNode temp = new ListNode(value)
-    if (last == null) {
+    if (last == null) { // empty list
       last = temp
       // points to itself Circular
       last.next = last
@@ -85,10 +86,27 @@ public class CircularSinglyLinkedList {
     length++
   }
 
+  public ListNode removeNodeCSLL(){
+    if(isEmpty()) {
+      throw new NoSuchElementException
+    }
+    ListNode temp = last.next
+    if(last.next != last) {
+      last.next = temp.next
+    } else {
+      // only 1 node so set last to null to remove 
+      last = null 
+    }
+    temp.next = null
+    length--;
+    return temp;
+  }
+
   public static void main(String[], args) {
     CircularSinglyLinkedList csll = new CircularSinglyLinkedList()
     csll.createCircularLinkedList();
-    csll.insertNodeBeginningCSLL(10)
+    // csll.insertNodeBeginningCSLL(10)
+    csll.insertNodeAtEndOfCSLL(10)
     csll.display()
   }
 }
