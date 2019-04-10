@@ -14,7 +14,10 @@ null<--|left|data|right --> null */
 2. traverse the left subtree in PreOrder fashion
 3. traverse the right subtree in PreOrder fashion */
 
-
+/* in order B.T traversal
+1. Traverse left subtree in In order fashion
+2. visit root node
+3. Traverse right subtree in In order fashion */
 
 public class BinaryTree {
   private TreeNode root;
@@ -57,6 +60,15 @@ public class BinaryTree {
     // work wherever pointer is on call stack to run that specific node
     preOrder(root.left)
     preOrder(root.right);
+  }
+
+  public void inOrder(TreeNode root) {
+    if( root == null) {
+      return
+    }
+    inOrder(root.left)
+    System.out.print(root.data + " ")
+    inOrder(root.right)
   }
 
   public void preOrderIterative(TreeNode root) {
