@@ -71,8 +71,26 @@ public class Trie {
   }
 
   public boolean search(String word) {
-    return false
+    if (word == null || word.isEmpty()) {
+      throw new IllegalArgumentException("invalid input")
+    }
+    // make all letters in word lower case for matching the index
+    word = word.toLowerCase();
+
+    TrieNode current = root;
+
+    for(int i = 0; i < word.length; i++) {
+      char c = word.charAt(i);
+      // will letter - 'a' will return the index 
+      int index = c - 'a'
+      if(current.children[index] != null) {
+        current = current.children[index];
+      } else {
+        return false 
+      }
   }
+    return true
+}
 
   public static void main(String[], args) {
     Trie trie = new Trie();
