@@ -13,8 +13,15 @@ Each trieNode will point to another 26 trieNode (children) so they can store a p
 
 Root TrieNode is top with empty value having 26 links and the links are either null or point to another TrieNode
 index mapping letter param - 'a' will get the specific index of the letter
-*/
 
+
+insertion to empty Trie 
+root points to empty node 
+insertion with word with no common prefix add a new brance with the inserted character mark last letter as end of word.
+if common prefix at point where character differs create a new branch 
+insertion with word already present just mark last letter as end of word
+*/
+import java.lang.IllegalArgumentException;
 public class Trie {
   // Trie is implemented by a TrieNode class and has a root 
 
@@ -35,7 +42,32 @@ public class Trie {
   }
 
   public void insert(String word) {
+    if (word == null || word.isEmpty()) {
+      throw new IllegalArgumentException("invalid input")
+    }
+    // make all letters in word lower case for matching the index
+    word = word.toLowerCase();
 
+    TrieNode current = root;
+
+    for(int i = 0; i < word.length; i++) {
+      char c = word.charAt(i);
+      // will letter - 'a' will return the index 
+      int index = c - 'a'
+      if(current.children[index] == null) {
+        TrieNode node = new TrieNode()
+        // now current.children[index] points to the newly created node
+        current.children[index] = node
+        // traverse to the new node created so can move to the next letter 
+        current = node
+      }
+      else {
+        // if node already there just traverse current to it's child node to get to next letter
+        current = current.children[index]
+      }
+    }
+    // once loop through and reach end of word set boolean flag to true to mark end of word
+    current.isWord = true
   }
 
   public boolean search(String word) {
@@ -43,7 +75,11 @@ public class Trie {
   }
 
   public static void main(String[], args) {
-  
+    Trie trie = new Trie();
+    trie.insert("cat");
+    trie.insert("cab");
+    trie.insert("son");
+    trie.insert("so");
+    System.out.println("Values inserted successfully !!!");
+      }
   }
-
-}
