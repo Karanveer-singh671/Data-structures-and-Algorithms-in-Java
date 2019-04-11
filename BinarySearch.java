@@ -5,7 +5,7 @@
 4. if the midpoint is the key value return 
 5. if key looking for is less than mid value then cut off the high to value to search only first half of array
 */
-
+// time complexity is O(log(n)) since only a comparison and do not have to go through each element
 public class BinarySearch {
   // array is coming in as sorted
   public int binarySearch(int[] nums, int key) {
